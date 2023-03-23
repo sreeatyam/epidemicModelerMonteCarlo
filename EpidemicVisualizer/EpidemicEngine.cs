@@ -30,6 +30,8 @@ namespace EpidemicVisualizer
                 AddObjectRandom(newGuy);
             }
 
+            // Make an obstacle, for fun
+            AddObjectRandom(new Obstacle(this, 1, 1));
         }
 
         protected override void UserDefinedEndOfTurn()
@@ -53,6 +55,7 @@ namespace EpidemicVisualizer
             Registry.Initialize(@"EpidemicVisualizer\", @"Images\");
 
             Registry.AddEntry(new GraphicInfo("person.jpg", Person.Width * SizeScale, Person.Height * SizeScale));
+            Registry.AddEntry(new GraphicInfo("rock.jpg", 1, 1));
         }
     }
 }

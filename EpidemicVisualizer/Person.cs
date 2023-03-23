@@ -1,4 +1,5 @@
 ﻿using Arena;
+using Arena.GraphicTurns;
 using DongUtility;
 using System;
 using System.Collections.Generic;
@@ -129,6 +130,15 @@ namespace EpidemicVisualizer
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Use to change the person graphic to a different one.
+        /// Assigned by code (must be initialized in the EpidemicEngine.Initialize() function)
+        /// </summary>
+        private void ChangeGraphic(int newCode)
+        {
+            Arena.TurnSet.AddCommand(new ChangeObjectGraphic(1, Code, newCode));
         }
 
         public override bool IsPassable(ArenaObject mover = null)
