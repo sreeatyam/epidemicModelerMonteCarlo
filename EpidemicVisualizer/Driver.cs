@@ -28,6 +28,8 @@ namespace EpidemicVisualizer
                 "Time (hours)", "Number infected");
             window.Manager.AddSingleGraph("Alive", UtilityFunctions.ConvertColor(Colors.DarkTurquoise), () => window.Engine.Time, () => window.Engine.GetObjectsOfType<Person>().Count(),
                 "Time (hours)", "Population");
+            window.Manager.AddSingleGraph("Vaccinated", UtilityFunctions.ConvertColor(Colors.BurlyWood), () => window.Engine.Time, () => window.Engine.TotalVaccinated,
+                "Time (hours)", "Number vaccinated");
             window.Show();
         }
     }

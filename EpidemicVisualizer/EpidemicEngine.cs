@@ -12,7 +12,7 @@ namespace EpidemicVisualizer
     {
 
         public EpidemicEngine(double xSize, double ySize, int nPeople = 1, int nInfected = 1) :
-            base(xSize, ySize, "concrete.jpg")
+            base(xSize, ySize, "imsaBirdEye.jpg")
         {
             if (nPeople <= 0)
             {
@@ -22,7 +22,7 @@ namespace EpidemicVisualizer
             int infectedCounter = 0;
             for (int i = 0; i < nPeople; ++i)
             {
-                var newGuy = new Person();
+                var newGuy = new Person(); 
                 if (infectedCounter++ < nInfected)
                 {
                     newGuy.Infected = true;
@@ -48,13 +48,15 @@ namespace EpidemicVisualizer
 
         public double TotalInfected => GetObjectsOfType<Person>().Count((x)=> x.Infected);
 
+        public double TotalVaccinated => GetObjectsOfType<Person>().Count((x) => x.Vaccinated);
+
         public double SizeScale { get; set; } = 1;
 
         public override void Initialize()
         {
             Registry.Initialize(@"EpidemicVisualizer\", @"Images\");
 
-            Registry.AddEntry(new GraphicInfo("person.jpg", Person.Width * SizeScale, Person.Height * SizeScale));
+            Registry.AddEntry(new GraphicInfo("amongUsCharacter.jpg", Person.Width * SizeScale, Person.Height * SizeScale));
             Registry.AddEntry(new GraphicInfo("rock.jpg", 1, 1));
         }
     }
